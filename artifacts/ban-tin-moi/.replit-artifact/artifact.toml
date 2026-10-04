@@ -1,0 +1,28 @@
+kind = "web"
+previewPath = "/"
+title = "Bản Tin Mới"
+description = "A Vietnamese news website with a home page, category pages, and article detail pages, featuring a red, blue, and green brand identity."
+version = "1.0.0"
+id = "artifacts/ban-tin-moi"
+router = "path"
+
+[[services]]
+name = "web"
+paths = [ "/" ]
+localPort = 21649
+
+[services.development]
+run = "pnpm --filter @workspace/ban-tin-moi run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/ban-tin-moi", "run", "build" ]
+serve = "static"
+publicDir = "artifacts/ban-tin-moi/dist/public"
+
+[[services.production.rewrites]]
+from = "/*"
+to = "/index.html"
+
+[services.env]
+PORT = "21649"
+BASE_PATH = "/"

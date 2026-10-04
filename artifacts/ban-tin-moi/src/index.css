@@ -1,0 +1,99 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700;800&family=IBM+Plex+Mono:wght@400;500&display=swap');
+@import 'tailwindcss';
+@import 'tw-animate-css';
+@plugin "@tailwindcss/typography";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --color-background: hsl(var(--background));
+  --color-foreground: hsl(var(--foreground));
+  --color-border: hsl(var(--border));
+  --color-input: hsl(var(--input));
+  --color-ring: hsl(var(--ring));
+  --color-card: hsl(var(--card));
+  --color-card-foreground: hsl(var(--card-foreground));
+  --color-primary: hsl(var(--primary));
+  --color-primary-foreground: hsl(var(--primary-foreground));
+  --color-secondary: hsl(var(--secondary));
+  --color-secondary-foreground: hsl(var(--secondary-foreground));
+  --color-muted: hsl(var(--muted));
+  --color-muted-foreground: hsl(var(--muted-foreground));
+  --color-accent: hsl(var(--accent));
+  --color-accent-foreground: hsl(var(--accent-foreground));
+  --font-sans: var(--app-font-sans);
+  --font-serif: var(--app-font-serif);
+  --font-mono: var(--app-font-mono);
+}
+
+:root {
+  --background: 42 40% 96%;
+  --foreground: 214 35% 17%;
+  --border: 33 18% 83%;
+  --input: 33 18% 83%;
+  --card: 42 40% 98%;
+  --card-foreground: 214 35% 17%;
+  --primary: 2 75% 48%;
+  --primary-foreground: 0 0% 100%;
+  --secondary: 198 70% 34%;
+  --secondary-foreground: 0 0% 100%;
+  --muted: 42 23% 91%;
+  --muted-foreground: 215 15% 44%;
+  --accent: 148 44% 34%;
+  --accent-foreground: 0 0% 100%;
+  --destructive: 2 75% 48%;
+  --destructive-foreground: 0 0% 100%;
+  --ring: 198 70% 34%;
+  --chart-1: 2 75% 48%;
+  --chart-2: 198 70% 34%;
+  --chart-3: 148 44% 34%;
+  --chart-4: 37 71% 54%;
+  --chart-5: 214 35% 17%;
+  --app-font-sans: 'DM Sans', sans-serif;
+  --app-font-serif: 'Playfair Display', Georgia, serif;
+  --app-font-mono: 'IBM Plex Mono', monospace;
+  --radius: 0.25rem;
+}
+
+.dark {
+  --background: 214 35% 11%;
+  --foreground: 42 40% 96%;
+  --border: 214 22% 25%;
+  --input: 214 22% 25%;
+  --card: 214 32% 14%;
+  --card-foreground: 42 40% 96%;
+  --primary: 2 75% 58%;
+  --primary-foreground: 0 0% 100%;
+  --secondary: 198 65% 48%;
+  --secondary-foreground: 0 0% 100%;
+  --muted: 214 25% 19%;
+  --muted-foreground: 214 12% 68%;
+  --accent: 148 44% 45%;
+  --accent-foreground: 0 0% 100%;
+  --destructive: 2 75% 58%;
+  --destructive-foreground: 0 0% 100%;
+  --ring: 198 65% 48%;
+}
+
+@layer base {
+  * { @apply border-border; }
+  body { @apply font-sans antialiased bg-background text-foreground; margin: 0; }
+  a { color: inherit; text-decoration: none; }
+}
+
+html { scroll-behavior: smooth; }
+::selection { background: #c9342b; color: #fff; }
+.site-shell { min-height: 100dvh; background: #f7f4ec; }
+.masthead { background: #f7f4ec; }
+.brand-wordmark { font-family: var(--app-font-serif); letter-spacing: -0.075em; }
+.eyebrow { font-family: var(--app-font-mono); letter-spacing: .11em; text-transform: uppercase; }
+.headline { font-family: var(--app-font-serif); letter-spacing: -.045em; line-height: 1.06; }
+.article-copy { font-family: var(--app-font-serif); }
+.hairline { border-color: #d6d0c4; }
+.story-link { transition: color .2s ease; }
+.story-link:hover { color: #b92923; }
+.image-frame img { transition: transform .65s cubic-bezier(.2,.7,.2,1); }
+.image-frame:hover img { transform: scale(1.035); }
+.reveal { animation: arrive .55s ease both; }
+@keyframes arrive { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+@media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; scroll-behavior: auto !important; } }
